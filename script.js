@@ -32,13 +32,31 @@ fetch("./product.json")
     });
 
 function addCart(ref) {
-    console.log(myProduct)
-    console.log(ref.dataset.xvalue)
     myProduct.forEach(data => {
         if (data.id == ref.dataset.xvalue) {
-            cart.products.push(data)
+            // console.log(data)
+            if (cart.products.length == 0) {
+                // console.log({ ...data, quantity: 1 })
+                cart.products.push({ ...data, quantity: 1 })
+                console.log(cart)
+            } else {
+                let flag = false
+                cart.products.forEach((product, index) => {
+                    if (product.id == ref.dataset.xvalue && product.quantity) {
+                        flag = true
+                        console.log(ref.dataset.xvalue)
+                        cart.products[index].quantity += 1;
+                    }
+                })
+                if (!flag) {
+                    cart.products.push({ ...data, quantity: 1 })
+                    console.log(cart)
+                }
+            }
+
         }
     })
+    console.log(cart)
     cartAdd();
 }
 
@@ -52,7 +70,7 @@ function cartAdd() {
                 </div>
                 <div class="product-des">
                     <div class="titlt-price">
-                        <p class="product-title">${each.title}</h>
+                        <p class="product-title">${each.title}</p>
                         <div class="price-sec">
                             <p class="price paisa">$ ${each.price}</p>
                             <p class="compared-price paisa">
@@ -60,6 +78,7 @@ function cartAdd() {
                             </p>
                         </div>
                     </div>
+                    <span class="quantity">${each.quantity}</span>
                      <p class="cross" data-yvalue= ${each.id} onClick="removeCart(this);">X
                     </p>
                 </div>
@@ -70,11 +89,16 @@ function cartAdd() {
 }
 
 function removeCart(ref) {
+    console.log(ref)
     console.log(ref.dataset.yvalue)
     console.log(cart.products)
     let arr = []
-    arr = cart.products.map(data => {
-        if (data.id != ref.dataset.xvalue) {
+    cart.products.map(data => {
+        if (data.id == ref.dataset.yvalue) {
+            if (data.quantity > 1) {
+                arr.push({ ...data, quantity: data.quantity - 1 })
+            }
+        } else {
             arr.push(data)
         }
     })
