@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    margin: .7em;
+}
+
+.our-product {
+    margin: 5em 0em;
+    margin-top: 0;
+}
+
+.line {
+    padding: 0 15%;
+}
+
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    align-items: start;
+    justify-content: center;
+    gap: 3em;
+    padding: 0 15%;
+    width: 100%;
+    /* background: #0000002a; */
+}
+
+.single-product {
+    width: max-content;
+    /* background: rgba(102, 51, 153, 0.301); */
+}
+
+.product-image {
+    width: 190px;
+    border-radius: 10px;
+}
+
+.paisa {
+    font-size: .9em;
+}
+
+.compared-price {
+    text-decoration: line-through;
+}
+
+.product-des {
+    display: flex;
+    justify-content: space-between;
+}
+
+i {
+    padding: 8px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    font-size: 1.8em;
+    background: rgba(168, 168, 168, 0.295);
+    align-self: center;
+    border-radius: 5px
+}
+
+.filter {
+    font-size: .71em;
+    position: absolute;
+    padding: 2em;
+    width: 170px;
+}
+
+.price-name {
+    margin-bottom: 1em;
+    font-weight: 600;
+    font-size: medium;
+}
+
+.filter-range {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .61em;
+    font-weight: 500;
+}
+
+.head {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15%;
+}
+
+.cart-title {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.cross {
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    font-size: 1.5em;
+    background: rgba(168, 168, 168, 0.295);
+    align-self: center;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cart-section {
+    padding-bottom: 40px;
+}
+
+.cart-summary {
+    padding: 0 15%;
+}
