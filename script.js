@@ -36,19 +36,16 @@ function addCart(ref) {
         if (data.id == ref.dataset.xvalue) {
             if (cart.products.length == 0) {
                 cart.products.push({ ...data, quantity: 1 })
-                console.log(cart)
             } else {
                 let flag = false
                 cart.products.forEach((product, index) => {
                     if (product.id == ref.dataset.xvalue && product.quantity) {
                         flag = true
-                        console.log(ref.dataset.xvalue)
                         cart.products[index].quantity += 1;
                     }
                 })
                 if (!flag) {
                     cart.products.push({ ...data, quantity: 1 })
-                    console.log(cart)
                 }
             }
 
@@ -114,6 +111,19 @@ function clearCart() {
     document.querySelector(".price-avg").textContent = `$0.00`
     document.querySelector(".price-total").textContent = `$0.00`
 }
+
+
+document.querySelector('input[name="filter-bar"]').addEventListener("keypress",
+    function (e) {
+        if (e.which < 48 || e.which > 57) {
+            e.preventDefault()
+        }
+    })
+
+document.querySelector('input[name="filter-bar"]').addEventListener("click", function (e) {
+    e.target.value = ""
+})
+
 
 
 

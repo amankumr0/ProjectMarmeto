@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
+
     <title>Document</title>
 </head>
 
@@ -23,9 +24,14 @@
     </section>
     <section class="cart-section">
         <div class="head">
-            <div class="search">
-                <input type="text" name="search-input" id="search-bar" title="search-bar">
-            </div>
+            <form>
+                <div class="filter">
+                    <input type="text" name="filter-bar" id="filter-bar" title="filter-bar" placeholder="Enter a price"
+                        required>
+                    <button class="filter-btn" title="submit-button" type="submit"><i
+                            class='bx bx-objects-horizontal-center filter-icon'></i></button>
+                </div>
+            </form>
             <div class="right">
                 <label for="sort-by">
                     <select name="Sort By" id="sort-by" title="sort-by">
@@ -51,33 +57,34 @@
         <div class="title">
             Cart Summary
         </div>
-        <div class="avg-price">
-            <div>
-                <h3 class="av avgPrice">
+        <div class="avg-price price-div">
+            <div class="price-text">
+                <p class="av avgPrice">
                     Average Product Price
-                </h3>
+                </p>
             </div>
-            <div>
-                <h3 class="price-avg">
+            <div class="num">
+                <p class="price-avg">
                     $0.00
-                </h3>
-                <hr>
+                </p>
             </div>
+            <hr>
         </div>
-        <div class="total-price">
-            <div>
-                <h3 class="av">
+        <div class="total-price price-div">
+            <div class="price-text">
+                <p class="av">
                     Total
-                </h3>
+                </p>
             </div>
-            <div>
-                <h3 class="price-avg price-total">
+            <div class="num">
+                <p class="price-avg price-total">
                     $0.00
-                </h3>
-                <hr>
+                </p>
             </div>
+            <hr>
         </div>
     </section>
+    <script src="./script.js"></script>
 </body>
 
 </html>

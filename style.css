@@ -73,25 +73,12 @@ i {
     border-radius: 5px
 }
 
-.filter {
-    font-size: .71em;
-    position: absolute;
-    padding: 2em;
-    width: 170px;
-}
-
 .price-name {
     margin-bottom: 1em;
     font-weight: 600;
     font-size: medium;
 }
 
-.filter-range {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: .61em;
-    font-weight: 500;
-}
 
 .head {
     /* margin-top: 2em; */
@@ -156,4 +143,62 @@ select {
     outline: none;
     border: none;
     background: none;
+}
+
+.avg-price,
+.total-price {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.price-text,
+.num {
+    width: 50%;
+    /* font-weight: 400; */
+}
+
+
+.num {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.cart-summary p {
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.filter-icon {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.6em;
+    color: #fff;
+    background: #000;
+}
+
+.filter {
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#filter-bar {
+    outline: none;
+    border: none;
+    padding: 2px;
+}
+
+.filter-btn {
+    border: none;
+    cursor: pointer;
+    background: #000;
+
 }
