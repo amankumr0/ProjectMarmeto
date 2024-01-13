@@ -16,12 +16,12 @@ fetch("./product.json")
                 </div>
                 <div class="product-des">
                     <div class="titlt-price">
-                        <p class="product-title">${each.title}</h>
+                        <p class="product-title">${each.title}</p>
                         <div class="price-sec">
-                            <p class="price paisa">$ ${each.price}</p>
-                            <p class="compared-price paisa">
+                            <p class="price paisa">$${each.price}</p>
+                            ${(each.compare_at_price) ? `<p class="compared-price paisa">
                                 $ ${each.compare_at_price}
-                            </p>
+                            </p>`: ''}
                         </div>
                     </div>
                     <i class='bx bx-cart-alt cart-icon' data-xvalue= ${each.id} onClick="addCart(this);"></i>
@@ -34,9 +34,7 @@ fetch("./product.json")
 function addCart(ref) {
     myProduct.forEach(data => {
         if (data.id == ref.dataset.xvalue) {
-            // console.log(data)
             if (cart.products.length == 0) {
-                // console.log({ ...data, quantity: 1 })
                 cart.products.push({ ...data, quantity: 1 })
                 console.log(cart)
             } else {
@@ -61,8 +59,12 @@ function addCart(ref) {
 }
 
 function cartAdd() {
+    let price = 0, tot_cart_item = 0;
+
     let str = ``;
     cart.products.forEach(each => {
+        price += each.price * each.quantity;
+        tot_cart_item += each.quantity;
 
         str += `<div class="single-product">
                 <div class="image-div">
@@ -72,7 +74,7 @@ function cartAdd() {
                     <div class="titlt-price">
                         <p class="product-title">${each.title}</p>
                         <div class="price-sec">
-                            <p class="price paisa">$ ${each.price}</p>
+                            <p class="price paisa">$ ${each.price * each.quantity}</p>
                             <p class="compared-price paisa">
                                 $ ${each.compare_at_price}
                             </p>
@@ -83,15 +85,13 @@ function cartAdd() {
                     </p>
                 </div>
             </div>`
-
-        document.querySelector(".cart-item").innerHTML = str
     })
+    document.querySelector(".cart-item").innerHTML = str
+    document.querySelector(".price-avg").textContent = `$${parseFloat(price / tot_cart_item).toFixed(2)}`
+    document.querySelector(".price-total").textContent = `$${price}`
 }
 
 function removeCart(ref) {
-    console.log(ref)
-    console.log(ref.dataset.yvalue)
-    console.log(cart.products)
     let arr = []
     cart.products.map(data => {
         if (data.id == ref.dataset.yvalue) {
@@ -106,6 +106,13 @@ function removeCart(ref) {
     cart.products = arr;
     document.querySelector(".cart-item").innerHTML = ''
     cartAdd();
+}
+
+function clearCart() {
+    cart.products = []
+    document.querySelector(".cart-item").innerHTML = "";
+    document.querySelector(".price-avg").textContent = `$0.00`
+    document.querySelector(".price-total").textContent = `$0.00`
 }
 
 

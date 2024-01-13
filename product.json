@@ -3,35 +3,35 @@
         {
             "id": 1,
             "title": "Library Stool Chair",
-            "price": 999,
+            "price": 69,
             "compare_at_price": 899,
             "image": "./img/chairImg1.jpg"
         },
         {
             "id": 2,
             "title": "Study Chair",
-            "price": 999,
+            "price": 39,
             "compare_at_price": 899,
             "image": "./img/chairImg2.jpg"
         },
         {
             "id": 3,
             "title": "Office Chair",
-            "price": 999,
+            "price": 79,
             "compare_at_price": 899,
             "image": "./img/chairImg3.jpg"
         },
         {
             "id": 4,
             "title": "White Chair",
-            "price": 999,
+            "price": 99,
             "compare_at_price": 899,
             "image": "./img/chairImg4.jpg"
         },
         {
             "id": 5,
             "title": "Pink Chair",
-            "price": 999,
+            "price": 98,
             "compare_at_price": 899,
             "image": "./img/chairImg5.jpg"
         },
@@ -52,7 +52,7 @@
         {
             "id": 8,
             "title": "Brown Chair",
-            "price": 999,
+            "price": 19,
             "compare_at_price": 899,
             "image": "./img/chairImg8.jpg"
         }
