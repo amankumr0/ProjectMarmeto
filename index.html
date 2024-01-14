@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="./script.js"></script> -->
-
     <title>Document</title>
 </head>
 
@@ -24,7 +22,7 @@
     </section>
     <section class="cart-section">
         <div class="head">
-            <form>
+            <form class="filter-form">
                 <div class="filter">
                     <input type="text" name="filter-bar" id="filter-bar" title="filter-bar" placeholder="Enter a price"
                         required>
@@ -34,10 +32,10 @@
             </form>
             <div class="right">
                 <label for="sort-by">
+                    Sort By :
                     <select name="Sort By" id="sort-by" title="sort-by">
-                        <option value="">Sort By</option>
-                        <option value="price">price</option>
-                        <option value="name">name</option>
+                        <option value="ASC">ASC</option>
+                        <option value="DESC">DESC</option>
                     </select>
                 </label>
                 <button class="btn clear-cart-btn" onclick="clearCart()">Clear Cart <b>x</b></button>
@@ -68,8 +66,8 @@
                     $0.00
                 </p>
             </div>
-            <hr>
         </div>
+        <hr>
         <div class="total-price price-div">
             <div class="price-text">
                 <p class="av">
@@ -81,7 +79,6 @@
                     $0.00
                 </p>
             </div>
-            <hr>
         </div>
     </section>
     <script src="./script.js"></script>

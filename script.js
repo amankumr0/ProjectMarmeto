@@ -55,11 +55,22 @@ function addCart(ref) {
     cartAdd();
 }
 
-function cartAdd() {
+function cartAdd(val = null) {
+    let product = [];
+    if (typeof val == "number") {
+        cart.products.forEach(pro => {
+            if (pro.price <= val) {
+                product.push(pro)
+            }
+        })
+    }
+    else {
+        product = (val) ? (val == "ASC" ? cart.products.sort((a, b) => a.price - b.price) : cart.products.sort((a, b) => b.price - a.price)) : cart.products
+    }
     let price = 0, tot_cart_item = 0;
 
     let str = ``;
-    cart.products.forEach(each => {
+    product.forEach(each => {
         price += each.price * each.quantity;
         tot_cart_item += each.quantity;
 
@@ -123,6 +134,20 @@ document.querySelector('input[name="filter-bar"]').addEventListener("keypress",
 document.querySelector('input[name="filter-bar"]').addEventListener("click", function (e) {
     e.target.value = ""
 })
+
+document.querySelector("#sort-by").addEventListener("change", (e) => {
+    console.log(e.target.value)
+    cartAdd(e.target.value)
+})
+
+document.querySelector(".filter-form").addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = document.querySelector('input[name="filter-bar"]').value;
+    cartAdd(Number(value))
+    document.querySelector('input[name="filter-bar"]').value = ""
+})
+
+
 
 
 
